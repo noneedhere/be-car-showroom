@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  MANAGER
+  SALES
+}
+
+enum Category {
+  SPORT
+  FAMILY
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  uuid           String   @unique @default(uuid())
+  name           String
+  email          String   @unique
+  password       String
+  profilePicture String?
+  role           Role     @default(MANAGER)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  sales          Sale[]
+}
+
+model Car {
+  id          Int      @id @default(autoincrement())
+  uuid        String   @unique @default(uuid())
+  // brand       String
+  categoty    Category @default(FAMILY)
+  year        Int
+  price       Int
+  stock       Int      @default(0)
+  image       String?
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  sales       Sale[]
+}
+
+model Sale {
+  id        Int      @id @default(autoincrement())
+  uuid      String   @unique @default(uuid())
+  buyerName String
+  saleDate  DateTime @default(now())
+  car       Car?     @relation(fields: [carId], references: [id])
+  carId     Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  price     Int
+}
