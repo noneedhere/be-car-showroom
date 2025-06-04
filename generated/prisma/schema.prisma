@@ -25,12 +25,12 @@ enum Category {
 }
 
 model User {
-  id             Int      @id @default(autoincrement())
+  id_user        Int      @id @default(autoincrement())
   uuid           String   @unique @default(uuid())
   name           String
   email          String   @unique
   password       String
-  profilePicture String?
+  profilePicture String   @default("")
   role           Role     @default(MANAGER)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -38,7 +38,7 @@ model User {
 }
 
 model Car {
-  id          Int      @id @default(autoincrement())
+  id_car      Int      @id @default(autoincrement())
   uuid        String   @unique @default(uuid())
   // brand       String
   categoty    Category @default(FAMILY)
@@ -53,13 +53,13 @@ model Car {
 }
 
 model Sale {
-  id        Int      @id @default(autoincrement())
+  id_sale   Int      @id @default(autoincrement())
   uuid      String   @unique @default(uuid())
   buyerName String
   saleDate  DateTime @default(now())
-  car       Car?     @relation(fields: [carId], references: [id])
+  car       Car?     @relation(fields: [carId], references: [id_car])
   carId     Int
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id_user])
   userId    Int
   price     Int
 }

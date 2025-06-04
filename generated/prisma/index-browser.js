@@ -121,7 +121,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 });
 
 exports.Prisma.UserScalarFieldEnum = {
-  id: 'id',
+  id_user: 'id_user',
   uuid: 'uuid',
   name: 'name',
   email: 'email',
@@ -133,7 +133,7 @@ exports.Prisma.UserScalarFieldEnum = {
 };
 
 exports.Prisma.CarScalarFieldEnum = {
-  id: 'id',
+  id_car: 'id_car',
   uuid: 'uuid',
   categoty: 'categoty',
   year: 'year',
@@ -146,7 +146,7 @@ exports.Prisma.CarScalarFieldEnum = {
 };
 
 exports.Prisma.SaleScalarFieldEnum = {
-  id: 'id',
+  id_sale: 'id_sale',
   uuid: 'uuid',
   buyerName: 'buyerName',
   saleDate: 'saleDate',
@@ -160,17 +160,17 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
-
 exports.Prisma.UserOrderByRelevanceFieldEnum = {
   uuid: 'uuid',
   name: 'name',
   email: 'email',
   password: 'password',
   profilePicture: 'profilePicture'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 exports.Prisma.CarOrderByRelevanceFieldEnum = {
