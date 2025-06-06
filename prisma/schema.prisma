@@ -15,7 +15,8 @@ datasource db {
 
 enum Role {
   MANAGER
-  SALES
+  ADMIN
+  CUSTOMER
 }
 
 enum Category {
@@ -30,35 +31,51 @@ model User {
   email          String   @unique
   password       String
   profilePicture String   @default("")
-  role           Role     @default(MANAGER)
+  role           Role     @default(CUSTOMER)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
   sales          Sale[]
 }
 
 model Car {
-  id_car      Int      @id @default(autoincrement())
-  uuid        String   @unique @default(uuid())
-  // brand       String
-  categoty    Category @default(FAMILY)
+  id_car      Int        @id @default(autoincrement())
+  uuid        String     @unique @default(uuid())
+  name        String
+  category    Category   @default(FAMILY)
   year        Int
   price       Int
-  stock       Int      @default(0)
   image       String?
-  description String?  @db.Text
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  description String?    @db.Text
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
   sales       Sale[]
+  OrderList   SaleList[]
 }
 
 model Sale {
-  id_sale   Int      @id @default(autoincrement())
-  uuid      String   @unique @default(uuid())
-  buyerName String
-  saleDate  DateTime @default(now())
-  car       Car?     @relation(fields: [carId], references: [id_car])
-  carId     Int
-  user      User     @relation(fields: [userId], references: [id_user])
-  userId    Int
-  price     Int
+  id_sale     Int        @id @default(autoincrement())
+  uuid        String     @unique @default(uuid())
+  buyerName   String
+  saleDate    DateTime   @default(now())
+  car         Car?       @relation(fields: [carId], references: [id_car])
+  carId       Int
+  user        User       @relation(fields: [userId], references: [id_user])
+  userId      Int
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  total_price Int        @default(0)
+  OrderList   SaleList[]
+}
+
+model SaleList {
+  id_saleList Int      @id @default(autoincrement())
+  uuid        String   @unique @default("")
+  quantity    Int      @default(0)
+  note        String   @default("") @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  car         Car?     @relation(fields: [carId], references: [id_car])
+  carId       Int?
+  sale        Sale?    @relation(fields: [saleId], references: [id_sale])
+  saleId      Int?
 }

@@ -35,37 +35,38 @@ export const getAllUsers = async (request: Request, response: Response) => {
 
 export const getUserById = async (request: Request, response: Response) => {
     try {
-        /** get requested data (data has been sent from request) */
-        const { id } = request.body.user
+        const { id } = request.params; // Ambil ID dari parameter URL
 
         if (!id) {
-            return response
-            .json({
+            return response.status(400).json({
                 status: false,
-                message: `User Not Found`
-            })
-            .status(400)
+                message: `User ID is required`
+            });
         }
 
-        /** process to get user, contains means search name of user based on sent keyword */
-        const allUser = await prisma.user.findFirst({
+        const user = await prisma.user.findFirst({
             where: { id_user: Number(id) }
-        })
+        });
 
-        return response.json({
-            status: true,
-            data: allUser,
-            message: `user has retrieved`
-        }).status(200)
-    } catch (error) {
-        return response
-            .json({
+        if (!user) {
+            return response.status(404).json({
                 status: false,
-                message: `There is an error. ${error}`
-            })
-            .status(400)
+                message: `User not found`
+            });
+        }
+
+        return response.status(200).json({
+            status: true,
+            data: user,
+            message: `User has been retrieved`
+        });
+    } catch (error) {
+        return response.status(500).json({
+            status: false,
+            message: `There is an error. ${error}`
+        });
     }
-}
+};
 
 export const createUser = async (request: any, response: Response) => {
     try {
