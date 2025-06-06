@@ -1,0 +1,27 @@
+import express from 'express'
+import cors from 'cors'
+import path from 'path'
+import dotenv from 'dotenv'
+
+dotenv.config()
+// import MenuRoute from './routers/menuRoute'
+// import UserRoute from './routers/userRoute'
+// import OrderRoute from './routers/orderRoute'
+// import ReportRoute from './routers/reportRoute'
+
+import UserRoute from './routers/userRouter'
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+app.use(`/user`, UserRoute)
+
+
+
+// Set public folder as static
+// app.use(express.static(path.join(__dirname, '..', 'public')));
+
+app.listen(process.env.PORT, () => {
+    console.log(`[server]: Server is running at http://localhost:3000`);
+})

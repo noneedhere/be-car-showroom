@@ -1130,15 +1130,15 @@ export namespace Prisma {
   }
 
   export type UserAvgAggregateOutputType = {
-    id: number | null
+    id_user: number | null
   }
 
   export type UserSumAggregateOutputType = {
-    id: number | null
+    id_user: number | null
   }
 
   export type UserMinAggregateOutputType = {
-    id: number | null
+    id_user: number | null
     uuid: string | null
     name: string | null
     email: string | null
@@ -1150,7 +1150,7 @@ export namespace Prisma {
   }
 
   export type UserMaxAggregateOutputType = {
-    id: number | null
+    id_user: number | null
     uuid: string | null
     name: string | null
     email: string | null
@@ -1162,7 +1162,7 @@ export namespace Prisma {
   }
 
   export type UserCountAggregateOutputType = {
-    id: number
+    id_user: number
     uuid: number
     name: number
     email: number
@@ -1176,15 +1176,15 @@ export namespace Prisma {
 
 
   export type UserAvgAggregateInputType = {
-    id?: true
+    id_user?: true
   }
 
   export type UserSumAggregateInputType = {
-    id?: true
+    id_user?: true
   }
 
   export type UserMinAggregateInputType = {
-    id?: true
+    id_user?: true
     uuid?: true
     name?: true
     email?: true
@@ -1196,7 +1196,7 @@ export namespace Prisma {
   }
 
   export type UserMaxAggregateInputType = {
-    id?: true
+    id_user?: true
     uuid?: true
     name?: true
     email?: true
@@ -1208,7 +1208,7 @@ export namespace Prisma {
   }
 
   export type UserCountAggregateInputType = {
-    id?: true
+    id_user?: true
     uuid?: true
     name?: true
     email?: true
@@ -1307,12 +1307,12 @@ export namespace Prisma {
   }
 
   export type UserGroupByOutputType = {
-    id: number
+    id_user: number
     uuid: string
     name: string
     email: string
     password: string
-    profilePicture: string | null
+    profilePicture: string
     role: $Enums.Role
     createdAt: Date
     updatedAt: Date
@@ -1338,7 +1338,7 @@ export namespace Prisma {
 
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
+    id_user?: boolean
     uuid?: boolean
     name?: boolean
     email?: boolean
@@ -1354,7 +1354,7 @@ export namespace Prisma {
 
 
   export type UserSelectScalar = {
-    id?: boolean
+    id_user?: boolean
     uuid?: boolean
     name?: boolean
     email?: boolean
@@ -1365,7 +1365,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "uuid" | "name" | "email" | "password" | "profilePicture" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_user" | "uuid" | "name" | "email" | "password" | "profilePicture" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sales?: boolean | User$salesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1377,12 +1377,12 @@ export namespace Prisma {
       sales: Prisma.$SalePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id_user: number
       uuid: string
       name: string
       email: string
       password: string
-      profilePicture: string | null
+      profilePicture: string
       role: $Enums.Role
       createdAt: Date
       updatedAt: Date
@@ -1469,8 +1469,8 @@ export namespace Prisma {
      * // Get first 10 Users
      * const users = await prisma.user.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * // Only select the `id_user`
+     * const userWithId_userOnly = await prisma.user.findMany({ select: { id_user: true } })
      * 
      */
     findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -1756,7 +1756,7 @@ export namespace Prisma {
    * Fields of the User model
    */
   interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'Int'>
+    readonly id_user: FieldRef<"User", 'Int'>
     readonly uuid: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
@@ -2163,21 +2163,21 @@ export namespace Prisma {
   }
 
   export type CarAvgAggregateOutputType = {
-    id: number | null
+    id_car: number | null
     year: number | null
     price: number | null
     stock: number | null
   }
 
   export type CarSumAggregateOutputType = {
-    id: number | null
+    id_car: number | null
     year: number | null
     price: number | null
     stock: number | null
   }
 
   export type CarMinAggregateOutputType = {
-    id: number | null
+    id_car: number | null
     uuid: string | null
     categoty: $Enums.Category | null
     year: number | null
@@ -2190,7 +2190,7 @@ export namespace Prisma {
   }
 
   export type CarMaxAggregateOutputType = {
-    id: number | null
+    id_car: number | null
     uuid: string | null
     categoty: $Enums.Category | null
     year: number | null
@@ -2203,7 +2203,7 @@ export namespace Prisma {
   }
 
   export type CarCountAggregateOutputType = {
-    id: number
+    id_car: number
     uuid: number
     categoty: number
     year: number
@@ -2218,21 +2218,21 @@ export namespace Prisma {
 
 
   export type CarAvgAggregateInputType = {
-    id?: true
+    id_car?: true
     year?: true
     price?: true
     stock?: true
   }
 
   export type CarSumAggregateInputType = {
-    id?: true
+    id_car?: true
     year?: true
     price?: true
     stock?: true
   }
 
   export type CarMinAggregateInputType = {
-    id?: true
+    id_car?: true
     uuid?: true
     categoty?: true
     year?: true
@@ -2245,7 +2245,7 @@ export namespace Prisma {
   }
 
   export type CarMaxAggregateInputType = {
-    id?: true
+    id_car?: true
     uuid?: true
     categoty?: true
     year?: true
@@ -2258,7 +2258,7 @@ export namespace Prisma {
   }
 
   export type CarCountAggregateInputType = {
-    id?: true
+    id_car?: true
     uuid?: true
     categoty?: true
     year?: true
@@ -2358,7 +2358,7 @@ export namespace Prisma {
   }
 
   export type CarGroupByOutputType = {
-    id: number
+    id_car: number
     uuid: string
     categoty: $Enums.Category
     year: number
@@ -2390,7 +2390,7 @@ export namespace Prisma {
 
 
   export type CarSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
+    id_car?: boolean
     uuid?: boolean
     categoty?: boolean
     year?: boolean
@@ -2407,7 +2407,7 @@ export namespace Prisma {
 
 
   export type CarSelectScalar = {
-    id?: boolean
+    id_car?: boolean
     uuid?: boolean
     categoty?: boolean
     year?: boolean
@@ -2419,7 +2419,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type CarOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "uuid" | "categoty" | "year" | "price" | "stock" | "image" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["car"]>
+  export type CarOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_car" | "uuid" | "categoty" | "year" | "price" | "stock" | "image" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["car"]>
   export type CarInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sales?: boolean | Car$salesArgs<ExtArgs>
     _count?: boolean | CarCountOutputTypeDefaultArgs<ExtArgs>
@@ -2431,7 +2431,7 @@ export namespace Prisma {
       sales: Prisma.$SalePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id_car: number
       uuid: string
       categoty: $Enums.Category
       year: number
@@ -2524,8 +2524,8 @@ export namespace Prisma {
      * // Get first 10 Cars
      * const cars = await prisma.car.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const carWithIdOnly = await prisma.car.findMany({ select: { id: true } })
+     * // Only select the `id_car`
+     * const carWithId_carOnly = await prisma.car.findMany({ select: { id_car: true } })
      * 
      */
     findMany<T extends CarFindManyArgs>(args?: SelectSubset<T, CarFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -2811,7 +2811,7 @@ export namespace Prisma {
    * Fields of the Car model
    */
   interface CarFieldRefs {
-    readonly id: FieldRef<"Car", 'Int'>
+    readonly id_car: FieldRef<"Car", 'Int'>
     readonly uuid: FieldRef<"Car", 'String'>
     readonly categoty: FieldRef<"Car", 'Category'>
     readonly year: FieldRef<"Car", 'Int'>
@@ -3219,21 +3219,21 @@ export namespace Prisma {
   }
 
   export type SaleAvgAggregateOutputType = {
-    id: number | null
+    id_sale: number | null
     carId: number | null
     userId: number | null
     price: number | null
   }
 
   export type SaleSumAggregateOutputType = {
-    id: number | null
+    id_sale: number | null
     carId: number | null
     userId: number | null
     price: number | null
   }
 
   export type SaleMinAggregateOutputType = {
-    id: number | null
+    id_sale: number | null
     uuid: string | null
     buyerName: string | null
     saleDate: Date | null
@@ -3243,7 +3243,7 @@ export namespace Prisma {
   }
 
   export type SaleMaxAggregateOutputType = {
-    id: number | null
+    id_sale: number | null
     uuid: string | null
     buyerName: string | null
     saleDate: Date | null
@@ -3253,7 +3253,7 @@ export namespace Prisma {
   }
 
   export type SaleCountAggregateOutputType = {
-    id: number
+    id_sale: number
     uuid: number
     buyerName: number
     saleDate: number
@@ -3265,21 +3265,21 @@ export namespace Prisma {
 
 
   export type SaleAvgAggregateInputType = {
-    id?: true
+    id_sale?: true
     carId?: true
     userId?: true
     price?: true
   }
 
   export type SaleSumAggregateInputType = {
-    id?: true
+    id_sale?: true
     carId?: true
     userId?: true
     price?: true
   }
 
   export type SaleMinAggregateInputType = {
-    id?: true
+    id_sale?: true
     uuid?: true
     buyerName?: true
     saleDate?: true
@@ -3289,7 +3289,7 @@ export namespace Prisma {
   }
 
   export type SaleMaxAggregateInputType = {
-    id?: true
+    id_sale?: true
     uuid?: true
     buyerName?: true
     saleDate?: true
@@ -3299,7 +3299,7 @@ export namespace Prisma {
   }
 
   export type SaleCountAggregateInputType = {
-    id?: true
+    id_sale?: true
     uuid?: true
     buyerName?: true
     saleDate?: true
@@ -3396,7 +3396,7 @@ export namespace Prisma {
   }
 
   export type SaleGroupByOutputType = {
-    id: number
+    id_sale: number
     uuid: string
     buyerName: string
     saleDate: Date
@@ -3425,7 +3425,7 @@ export namespace Prisma {
 
 
   export type SaleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
+    id_sale?: boolean
     uuid?: boolean
     buyerName?: boolean
     saleDate?: boolean
@@ -3439,7 +3439,7 @@ export namespace Prisma {
 
 
   export type SaleSelectScalar = {
-    id?: boolean
+    id_sale?: boolean
     uuid?: boolean
     buyerName?: boolean
     saleDate?: boolean
@@ -3448,7 +3448,7 @@ export namespace Prisma {
     price?: boolean
   }
 
-  export type SaleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "uuid" | "buyerName" | "saleDate" | "carId" | "userId" | "price", ExtArgs["result"]["sale"]>
+  export type SaleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_sale" | "uuid" | "buyerName" | "saleDate" | "carId" | "userId" | "price", ExtArgs["result"]["sale"]>
   export type SaleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     car?: boolean | Sale$carArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3461,7 +3461,7 @@ export namespace Prisma {
       user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id_sale: number
       uuid: string
       buyerName: string
       saleDate: Date
@@ -3551,8 +3551,8 @@ export namespace Prisma {
      * // Get first 10 Sales
      * const sales = await prisma.sale.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const saleWithIdOnly = await prisma.sale.findMany({ select: { id: true } })
+     * // Only select the `id_sale`
+     * const saleWithId_saleOnly = await prisma.sale.findMany({ select: { id_sale: true } })
      * 
      */
     findMany<T extends SaleFindManyArgs>(args?: SelectSubset<T, SaleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -3839,7 +3839,7 @@ export namespace Prisma {
    * Fields of the Sale model
    */
   interface SaleFieldRefs {
-    readonly id: FieldRef<"Sale", 'Int'>
+    readonly id_sale: FieldRef<"Sale", 'Int'>
     readonly uuid: FieldRef<"Sale", 'String'>
     readonly buyerName: FieldRef<"Sale", 'String'>
     readonly saleDate: FieldRef<"Sale", 'DateTime'>
@@ -4241,7 +4241,7 @@ export namespace Prisma {
 
 
   export const UserScalarFieldEnum: {
-    id: 'id',
+    id_user: 'id_user',
     uuid: 'uuid',
     name: 'name',
     email: 'email',
@@ -4256,7 +4256,7 @@ export namespace Prisma {
 
 
   export const CarScalarFieldEnum: {
-    id: 'id',
+    id_car: 'id_car',
     uuid: 'uuid',
     categoty: 'categoty',
     year: 'year',
@@ -4272,7 +4272,7 @@ export namespace Prisma {
 
 
   export const SaleScalarFieldEnum: {
-    id: 'id',
+    id_sale: 'id_sale',
     uuid: 'uuid',
     buyerName: 'buyerName',
     saleDate: 'saleDate',
@@ -4292,14 +4292,6 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
   export const UserOrderByRelevanceFieldEnum: {
     uuid: 'uuid',
     name: 'name',
@@ -4309,6 +4301,14 @@ export namespace Prisma {
   };
 
   export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   export const CarOrderByRelevanceFieldEnum: {
@@ -4382,12 +4382,12 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    id?: IntFilter<"User"> | number
+    id_user?: IntFilter<"User"> | number
     uuid?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
-    profilePicture?: StringNullableFilter<"User"> | string | null
+    profilePicture?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -4395,12 +4395,12 @@ export namespace Prisma {
   }
 
   export type UserOrderByWithRelationInput = {
-    id?: SortOrder
+    id_user?: SortOrder
     uuid?: SortOrder
     name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    profilePicture?: SortOrderInput | SortOrder
+    profilePicture?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -4409,7 +4409,7 @@ export namespace Prisma {
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id_user?: number
     uuid?: string
     email?: string
     AND?: UserWhereInput | UserWhereInput[]
@@ -4417,20 +4417,20 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
-    profilePicture?: StringNullableFilter<"User"> | string | null
+    profilePicture?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sales?: SaleListRelationFilter
-  }, "id" | "uuid" | "email">
+  }, "id_user" | "uuid" | "email">
 
   export type UserOrderByWithAggregationInput = {
-    id?: SortOrder
+    id_user?: SortOrder
     uuid?: SortOrder
     name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    profilePicture?: SortOrderInput | SortOrder
+    profilePicture?: SortOrder
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -4445,12 +4445,12 @@ export namespace Prisma {
     AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"User"> | number
+    id_user?: IntWithAggregatesFilter<"User"> | number
     uuid?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
-    profilePicture?: StringNullableWithAggregatesFilter<"User"> | string | null
+    profilePicture?: StringWithAggregatesFilter<"User"> | string
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -4460,7 +4460,7 @@ export namespace Prisma {
     AND?: CarWhereInput | CarWhereInput[]
     OR?: CarWhereInput[]
     NOT?: CarWhereInput | CarWhereInput[]
-    id?: IntFilter<"Car"> | number
+    id_car?: IntFilter<"Car"> | number
     uuid?: StringFilter<"Car"> | string
     categoty?: EnumCategoryFilter<"Car"> | $Enums.Category
     year?: IntFilter<"Car"> | number
@@ -4474,7 +4474,7 @@ export namespace Prisma {
   }
 
   export type CarOrderByWithRelationInput = {
-    id?: SortOrder
+    id_car?: SortOrder
     uuid?: SortOrder
     categoty?: SortOrder
     year?: SortOrder
@@ -4489,7 +4489,7 @@ export namespace Prisma {
   }
 
   export type CarWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id_car?: number
     uuid?: string
     AND?: CarWhereInput | CarWhereInput[]
     OR?: CarWhereInput[]
@@ -4503,10 +4503,10 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Car"> | Date | string
     updatedAt?: DateTimeFilter<"Car"> | Date | string
     sales?: SaleListRelationFilter
-  }, "id" | "uuid">
+  }, "id_car" | "uuid">
 
   export type CarOrderByWithAggregationInput = {
-    id?: SortOrder
+    id_car?: SortOrder
     uuid?: SortOrder
     categoty?: SortOrder
     year?: SortOrder
@@ -4527,7 +4527,7 @@ export namespace Prisma {
     AND?: CarScalarWhereWithAggregatesInput | CarScalarWhereWithAggregatesInput[]
     OR?: CarScalarWhereWithAggregatesInput[]
     NOT?: CarScalarWhereWithAggregatesInput | CarScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Car"> | number
+    id_car?: IntWithAggregatesFilter<"Car"> | number
     uuid?: StringWithAggregatesFilter<"Car"> | string
     categoty?: EnumCategoryWithAggregatesFilter<"Car"> | $Enums.Category
     year?: IntWithAggregatesFilter<"Car"> | number
@@ -4543,7 +4543,7 @@ export namespace Prisma {
     AND?: SaleWhereInput | SaleWhereInput[]
     OR?: SaleWhereInput[]
     NOT?: SaleWhereInput | SaleWhereInput[]
-    id?: IntFilter<"Sale"> | number
+    id_sale?: IntFilter<"Sale"> | number
     uuid?: StringFilter<"Sale"> | string
     buyerName?: StringFilter<"Sale"> | string
     saleDate?: DateTimeFilter<"Sale"> | Date | string
@@ -4555,7 +4555,7 @@ export namespace Prisma {
   }
 
   export type SaleOrderByWithRelationInput = {
-    id?: SortOrder
+    id_sale?: SortOrder
     uuid?: SortOrder
     buyerName?: SortOrder
     saleDate?: SortOrder
@@ -4568,7 +4568,7 @@ export namespace Prisma {
   }
 
   export type SaleWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id_sale?: number
     uuid?: string
     AND?: SaleWhereInput | SaleWhereInput[]
     OR?: SaleWhereInput[]
@@ -4580,10 +4580,10 @@ export namespace Prisma {
     price?: IntFilter<"Sale"> | number
     car?: XOR<CarNullableScalarRelationFilter, CarWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "uuid">
+  }, "id_sale" | "uuid">
 
   export type SaleOrderByWithAggregationInput = {
-    id?: SortOrder
+    id_sale?: SortOrder
     uuid?: SortOrder
     buyerName?: SortOrder
     saleDate?: SortOrder
@@ -4601,7 +4601,7 @@ export namespace Prisma {
     AND?: SaleScalarWhereWithAggregatesInput | SaleScalarWhereWithAggregatesInput[]
     OR?: SaleScalarWhereWithAggregatesInput[]
     NOT?: SaleScalarWhereWithAggregatesInput | SaleScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Sale"> | number
+    id_sale?: IntWithAggregatesFilter<"Sale"> | number
     uuid?: StringWithAggregatesFilter<"Sale"> | string
     buyerName?: StringWithAggregatesFilter<"Sale"> | string
     saleDate?: DateTimeWithAggregatesFilter<"Sale"> | Date | string
@@ -4615,7 +4615,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    profilePicture?: string | null
+    profilePicture?: string
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4623,12 +4623,12 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateInput = {
-    id?: number
+    id_user?: number
     uuid?: string
     name: string
     email: string
     password: string
-    profilePicture?: string | null
+    profilePicture?: string
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4640,7 +4640,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4648,12 +4648,12 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_user?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4661,12 +4661,12 @@ export namespace Prisma {
   }
 
   export type UserCreateManyInput = {
-    id?: number
+    id_user?: number
     uuid?: string
     name: string
     email: string
     password: string
-    profilePicture?: string | null
+    profilePicture?: string
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4677,19 +4677,19 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_user?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4709,7 +4709,7 @@ export namespace Prisma {
   }
 
   export type CarUncheckedCreateInput = {
-    id?: number
+    id_car?: number
     uuid?: string
     categoty?: $Enums.Category
     year: number
@@ -4736,7 +4736,7 @@ export namespace Prisma {
   }
 
   export type CarUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_car?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     categoty?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
     year?: IntFieldUpdateOperationsInput | number
@@ -4750,7 +4750,7 @@ export namespace Prisma {
   }
 
   export type CarCreateManyInput = {
-    id?: number
+    id_car?: number
     uuid?: string
     categoty?: $Enums.Category
     year: number
@@ -4775,7 +4775,7 @@ export namespace Prisma {
   }
 
   export type CarUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_car?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     categoty?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
     year?: IntFieldUpdateOperationsInput | number
@@ -4797,7 +4797,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedCreateInput = {
-    id?: number
+    id_sale?: number
     uuid?: string
     buyerName: string
     saleDate?: Date | string
@@ -4816,7 +4816,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_sale?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     buyerName?: StringFieldUpdateOperationsInput | string
     saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4826,7 +4826,7 @@ export namespace Prisma {
   }
 
   export type SaleCreateManyInput = {
-    id?: number
+    id_sale?: number
     uuid?: string
     buyerName: string
     saleDate?: Date | string
@@ -4843,7 +4843,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_sale?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     buyerName?: StringFieldUpdateOperationsInput | string
     saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4878,21 +4878,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type EnumRoleFilter<$PrismaModel = never> = {
     equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
     in?: $Enums.Role[]
@@ -4917,11 +4902,6 @@ export namespace Prisma {
     none?: SaleWhereInput
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
   export type SaleOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -4933,7 +4913,7 @@ export namespace Prisma {
   }
 
   export type UserCountOrderByAggregateInput = {
-    id?: SortOrder
+    id_user?: SortOrder
     uuid?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -4945,11 +4925,11 @@ export namespace Prisma {
   }
 
   export type UserAvgOrderByAggregateInput = {
-    id?: SortOrder
+    id_user?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
-    id?: SortOrder
+    id_user?: SortOrder
     uuid?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -4961,7 +4941,7 @@ export namespace Prisma {
   }
 
   export type UserMinOrderByAggregateInput = {
-    id?: SortOrder
+    id_user?: SortOrder
     uuid?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -4973,7 +4953,7 @@ export namespace Prisma {
   }
 
   export type UserSumOrderByAggregateInput = {
-    id?: SortOrder
+    id_user?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -5010,24 +4990,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type EnumRoleWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
     in?: $Enums.Role[]
@@ -5059,6 +5021,26 @@ export namespace Prisma {
     not?: NestedEnumCategoryFilter<$PrismaModel> | $Enums.Category
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type CarOrderByRelevanceInput = {
     fields: CarOrderByRelevanceFieldEnum | CarOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -5066,7 +5048,7 @@ export namespace Prisma {
   }
 
   export type CarCountOrderByAggregateInput = {
-    id?: SortOrder
+    id_car?: SortOrder
     uuid?: SortOrder
     categoty?: SortOrder
     year?: SortOrder
@@ -5079,14 +5061,14 @@ export namespace Prisma {
   }
 
   export type CarAvgOrderByAggregateInput = {
-    id?: SortOrder
+    id_car?: SortOrder
     year?: SortOrder
     price?: SortOrder
     stock?: SortOrder
   }
 
   export type CarMaxOrderByAggregateInput = {
-    id?: SortOrder
+    id_car?: SortOrder
     uuid?: SortOrder
     categoty?: SortOrder
     year?: SortOrder
@@ -5099,7 +5081,7 @@ export namespace Prisma {
   }
 
   export type CarMinOrderByAggregateInput = {
-    id?: SortOrder
+    id_car?: SortOrder
     uuid?: SortOrder
     categoty?: SortOrder
     year?: SortOrder
@@ -5112,7 +5094,7 @@ export namespace Prisma {
   }
 
   export type CarSumOrderByAggregateInput = {
-    id?: SortOrder
+    id_car?: SortOrder
     year?: SortOrder
     price?: SortOrder
     stock?: SortOrder
@@ -5126,6 +5108,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCategoryFilter<$PrismaModel>
     _max?: NestedEnumCategoryFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type CarNullableScalarRelationFilter = {
@@ -5145,7 +5145,7 @@ export namespace Prisma {
   }
 
   export type SaleCountOrderByAggregateInput = {
-    id?: SortOrder
+    id_sale?: SortOrder
     uuid?: SortOrder
     buyerName?: SortOrder
     saleDate?: SortOrder
@@ -5155,14 +5155,14 @@ export namespace Prisma {
   }
 
   export type SaleAvgOrderByAggregateInput = {
-    id?: SortOrder
+    id_sale?: SortOrder
     carId?: SortOrder
     userId?: SortOrder
     price?: SortOrder
   }
 
   export type SaleMaxOrderByAggregateInput = {
-    id?: SortOrder
+    id_sale?: SortOrder
     uuid?: SortOrder
     buyerName?: SortOrder
     saleDate?: SortOrder
@@ -5172,7 +5172,7 @@ export namespace Prisma {
   }
 
   export type SaleMinOrderByAggregateInput = {
-    id?: SortOrder
+    id_sale?: SortOrder
     uuid?: SortOrder
     buyerName?: SortOrder
     saleDate?: SortOrder
@@ -5182,7 +5182,7 @@ export namespace Prisma {
   }
 
   export type SaleSumOrderByAggregateInput = {
-    id?: SortOrder
+    id_sale?: SortOrder
     carId?: SortOrder
     userId?: SortOrder
     price?: SortOrder
@@ -5204,10 +5204,6 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type EnumRoleFieldUpdateOperationsInput = {
@@ -5270,6 +5266,10 @@ export namespace Prisma {
 
   export type EnumCategoryFieldUpdateOperationsInput = {
     set?: $Enums.Category
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type SaleUpdateManyWithoutCarNestedInput = {
@@ -5356,21 +5356,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type NestedEnumRoleFilter<$PrismaModel = never> = {
     equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
     in?: $Enums.Role[]
@@ -5434,35 +5419,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedEnumRoleWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
     in?: $Enums.Role[]
@@ -5494,6 +5450,21 @@ export namespace Prisma {
     not?: NestedEnumCategoryFilter<$PrismaModel> | $Enums.Category
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedEnumCategoryWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
     in?: $Enums.Category[]
@@ -5502,6 +5473,35 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCategoryFilter<$PrismaModel>
     _max?: NestedEnumCategoryFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type SaleCreateWithoutUserInput = {
@@ -5513,7 +5513,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedCreateWithoutUserInput = {
-    id?: number
+    id_sale?: number
     uuid?: string
     buyerName: string
     saleDate?: Date | string
@@ -5551,7 +5551,7 @@ export namespace Prisma {
     AND?: SaleScalarWhereInput | SaleScalarWhereInput[]
     OR?: SaleScalarWhereInput[]
     NOT?: SaleScalarWhereInput | SaleScalarWhereInput[]
-    id?: IntFilter<"Sale"> | number
+    id_sale?: IntFilter<"Sale"> | number
     uuid?: StringFilter<"Sale"> | string
     buyerName?: StringFilter<"Sale"> | string
     saleDate?: DateTimeFilter<"Sale"> | Date | string
@@ -5569,7 +5569,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedCreateWithoutCarInput = {
-    id?: number
+    id_sale?: number
     uuid?: string
     buyerName: string
     saleDate?: Date | string
@@ -5616,7 +5616,7 @@ export namespace Prisma {
   }
 
   export type CarUncheckedCreateWithoutSalesInput = {
-    id?: number
+    id_car?: number
     uuid?: string
     categoty?: $Enums.Category
     year: number
@@ -5638,19 +5638,19 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    profilePicture?: string | null
+    profilePicture?: string
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type UserUncheckedCreateWithoutSalesInput = {
-    id?: number
+    id_user?: number
     uuid?: string
     name: string
     email: string
     password: string
-    profilePicture?: string | null
+    profilePicture?: string
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5685,7 +5685,7 @@ export namespace Prisma {
   }
 
   export type CarUncheckedUpdateWithoutSalesInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_car?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     categoty?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
     year?: IntFieldUpdateOperationsInput | number
@@ -5713,26 +5713,26 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateWithoutSalesInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_user?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    profilePicture?: NullableStringFieldUpdateOperationsInput | string | null
+    profilePicture?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SaleCreateManyUserInput = {
-    id?: number
+    id_sale?: number
     uuid?: string
     buyerName: string
     saleDate?: Date | string
@@ -5749,7 +5749,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_sale?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     buyerName?: StringFieldUpdateOperationsInput | string
     saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5758,7 +5758,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_sale?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     buyerName?: StringFieldUpdateOperationsInput | string
     saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5767,7 +5767,7 @@ export namespace Prisma {
   }
 
   export type SaleCreateManyCarInput = {
-    id?: number
+    id_sale?: number
     uuid?: string
     buyerName: string
     saleDate?: Date | string
@@ -5784,7 +5784,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedUpdateWithoutCarInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_sale?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     buyerName?: StringFieldUpdateOperationsInput | string
     saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5793,7 +5793,7 @@ export namespace Prisma {
   }
 
   export type SaleUncheckedUpdateManyWithoutCarInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id_sale?: IntFieldUpdateOperationsInput | number
     uuid?: StringFieldUpdateOperationsInput | string
     buyerName?: StringFieldUpdateOperationsInput | string
     saleDate?: DateTimeFieldUpdateOperationsInput | Date | string
