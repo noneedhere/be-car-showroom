@@ -1,19 +1,19 @@
 import express from "express"
+import multer from "multer"
 import { getAllSales, createSale, updateSale, deleteSale } from "../controllers/saleController"
-// import { verifyAddOrder, verifyEditStatus } from "../middlewares/orderValidation"
-// import { verifyRole, verifyToken } from "../middlewares/authorization"
 
-const app = express()
-app.use(express.json())
+const router = express.Router()
 
-app.get(`/getAll`, getAllSales)
-app.post(`/add`, createSale)
-app.put(`/update/:id`, updateSale)
-app.delete(`/delete/:id`, deleteSale)
+// Middleware multer (tanpa file upload, tapi tetap bisa parsing form-data)
+const upload = multer()
 
-// app.get(`/`, [verifyToken, verifyRole(["CASHIER", "MANAGER"])], getAllOrders)
-// app.post(`/`, [verifyToken, verifyRole(["CASHIER"]), verifyAddOrder], createOrder)
-// app.put(`/:id`, [verifyToken, verifyRole(["MANAGER"]), verifyEditStatus], updateStatusOrder)
-// app.delete(`/:id`, [verifyToken, verifyRole(["MANAGER"])], deleteOrder)
+router.use(express.json())
 
-export default app
+router.get(`/getAll`, getAllSales)
+
+// Gunakan multer middleware untuk parsing form-data
+router.post(`/add`, upload.none(), createSale)
+router.put(`/update/:id`, upload.none(), updateSale)
+router.delete(`/delete/:id`, deleteSale)
+
+export default router

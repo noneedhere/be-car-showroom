@@ -1,15 +1,16 @@
 import express from 'express'
+import uploadFile from '../middlewares/carUpload'
 import { createCar, deleteCar, getAllCars, getCarById, updateCar } from '../controllers/carController'
-
-// import { authorize } from '../controllers/auth_controller.js'
-// import { IsAdmin } from '../middleware/role_validation.js'
+// import { verifyAddCar, verifyEditCar } from '../middlewares/carValidation' // bisa tambahkan lagi kalau perlu
 
 const app = express.Router()
 
-app.get('/getAll', getAllCars)
+app.use(express.json())
+
+app.get('/', getAllCars)
 app.get('/getBy/:id', getCarById)
-app.post('/add', createCar)
-app.put('/update/:id', updateCar)
+app.post('/add', uploadFile.single("file"), createCar)
+app.put('/update/:id', uploadFile.single("file"), updateCar)
 app.delete('/delete/:id', deleteCar)
 
 export default app

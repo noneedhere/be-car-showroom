@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { request, Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 import { BASE_URL, SECRET } from "../global";
@@ -7,6 +7,10 @@ import md5 from "md5";
 import { sign } from "jsonwebtoken";
 
 const prisma = new PrismaClient({ errorFormat: "pretty" })
+
+console.log("request.body:", request.body);
+console.log("request.file:", request.file);
+
 
 export const getAllUsers = async (request: Request, response: Response) => {
     try {
@@ -79,6 +83,7 @@ export const createUser = async (request: any, response: Response) => {
         if (request.file) filename = request.file.filename /** get file name of uploaded file */
 
         /** process to save new user */
+
         const newUser = await prisma.user.create({
             data: { uuid, name, email, password: md5(password), role, profilePicture: filename }
         })
@@ -117,7 +122,7 @@ export const updateUser = async (request: any, response: Response) => {
             /** update filename by new uploaded picture */
             filename = request.file.filename
             /** check the old picture in the folder */
-            let path = `${BASE_URL}/../public/profile_picture/${findUser.profilePicture}`
+            let path = `${BASE_URL}/public/${findUser.profilePicture}`
             let exists = fs.existsSync(path)
             /** delete the old exists picture if reupload new file */
             if(exists && findUser.profilePicture !== ``) fs.unlinkSync(path)
@@ -167,7 +172,7 @@ export const changePicture = async (request: any, response: Response) => {
             /** update filename by new uploaded picture */
             filename = request.file.filename
             /** check the old picture in the folder */
-            let path = `${BASE_URL}/../public/profile_picture/${findUser.profilePicture}`
+            let path = `${BASE_URL}/public/${findUser.profilePicture}`
             let exists = fs.existsSync(path)
             /** delete the old exists picture if reupload new file */
             if(exists && findUser.profilePicture !== ``) fs.unlinkSync(path)
@@ -203,7 +208,7 @@ export const deleteUser = async (request: any, response: Response) => {
             .json({ status: false, message: `user is not found` })
 
         /** prepare to delete file of deleted user's data */
-        let path = `${BASE_URL}/public/profile_picture/${findUser.profilePicture}` /** define path (address) of file location */
+        let path = `${BASE_URL}/public/${findUser.profilePicture}` /** define path (address) of file location */
         let exists = fs.existsSync(path)
         if (exists && findUser.profilePicture !== ``) fs.unlinkSync(path) /** if file exist, then will be delete */
 

@@ -68,6 +68,7 @@ export const getCarById = async (request: Request, response: Response) => {
 
 export const createCar = async (request: any, response: Response) => {
     try {
+        
         /** get requested data (data has been sent from request) */
         const { name, price, category, year, description } = request.body
         const uuid = uuidv4()
@@ -115,7 +116,7 @@ export const updateCar = async (request: any, response: Response) => {
             /** update filename by new uploaded picture */
             filename = request.file.filename
             /** check the old picture in the folder */
-            let path = `${BASE_URL}/../public/profile_picture/${findCar.image}`
+            let path = `${BASE_URL}/public/${findCar.image}`
             let exists = fs.existsSync(path)
             /** delete the old exists picture if reupload new file */
             if(exists && findCar.image !== ``) fs.unlinkSync(path)
@@ -160,7 +161,7 @@ export const deleteCar = async (request: any, response: Response) => {
             .json({ status: false, message: `car is not found` })
 
         /** prepare to delete file of deleted car's data */
-        let path = `${BASE_URL}/public/profile_picture/${findCar.image}` /** define path (address) of file location */
+        let path = `${BASE_URL}/public/${findCar.image}` /** define path (address) of file location */
         let exists = fs.existsSync(path)
         if (exists && findCar.image !== ``) fs.unlinkSync(path) /** if file exist, then will be delete */
 

@@ -18,7 +18,8 @@ export const getAllSales = async (request: Request, response: Response) => {
             orderBy: { saleDate: "desc" },
             include: {
                 car: true,
-                user: true
+                user: true,
+                OrderList: true
             }
         })
 
@@ -37,17 +38,24 @@ export const getAllSales = async (request: Request, response: Response) => {
 
 export const createSale = async (request: Request, response: Response) => {
     try {
-        const { buyerName, carId } = request.body
+        const { buyerName, car: carName, note } = request.body
         const user = request.body.user
 
-        const findCar = await prisma.car.findUnique({
-            where: { id_car: Number(carId) }
+        if (!buyerName || !carName) {
+            return response.status(400).json({
+                status: false,
+                message: "buyerName and car (name) are required"
+            })
+        }
+
+        const findCar = await prisma.car.findFirst({
+            where: { name: carName }
         })
 
         if (!findCar) {
             return response.status(404).json({
                 status: false,
-                message: `Car with id ${carId} is not found`
+                message: `Car with name ${carName} not found`
             })
         }
 
@@ -55,10 +63,22 @@ export const createSale = async (request: Request, response: Response) => {
             data: {
                 uuid: uuidv4(),
                 buyerName,
-                carId: Number(carId),
-                userId: Number(user.id),
+                carId: findCar.id_car,
+                userId: Number(user?.id || 1),
             }
         })
+
+        if (note) {
+            await prisma.saleList.create({
+                data: {
+                    uuid: uuidv4(),
+                    quantity: 1,
+                    note,
+                    carId: findCar.id_car,
+                    saleId: newSale.id_sale,
+                }
+            })
+        }
 
         return response.status(200).json({
             status: true,
@@ -76,7 +96,7 @@ export const createSale = async (request: Request, response: Response) => {
 export const updateSale = async (request: Request, response: Response) => {
     try {
         const { id } = request.params
-        const { buyerName, carId, price } = request.body
+        const { buyerName, carId } = request.body
         const user = request.body.user
 
         const findSale = await prisma.sale.findUnique({
