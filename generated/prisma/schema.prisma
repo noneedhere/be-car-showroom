@@ -40,11 +40,11 @@ model User {
 model Car {
   id_car      Int      @id @default(autoincrement())
   uuid        String   @unique @default(uuid())
-  // brand       String
+  name       String
   categoty    Category @default(FAMILY)
-  year        Int
+  // year        Int
   price       Int
-  stock       Int      @default(0)
+  // stock       Int      @default(0)
   image       String?
   description String?  @db.Text
   createdAt   DateTime @default(now())
