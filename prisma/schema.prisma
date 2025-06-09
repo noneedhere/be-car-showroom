@@ -15,8 +15,7 @@ datasource db {
 
 enum Role {
   MANAGER
-  ADMIN
-  CUSTOMER
+  SALES
 }
 
 enum Category {
@@ -31,7 +30,7 @@ model User {
   email          String   @unique
   password       String
   profilePicture String   @default("")
-  role           Role     @default(CUSTOMER)
+  role           Role     @default(SALES)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
   sales          Sale[]

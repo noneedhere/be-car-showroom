@@ -228,40 +228,40 @@ export const deleteUser = async (request: any, response: Response) => {
 
 export const authentication = async (request: Request, response: Response) => {
     try {
-        const { email, password } = request.body /** get requested data (data has been sent from request) */
+        const { email, password } = request.body;
 
-        /** find a valid admin based on username and password */
         const findUser = await prisma.user.findFirst({
             where: { email, password: md5(password) }
-        })
+        });
 
-        /** check is admin exists */
-        if (!findUser) return response
-            .status(200)
-            .json({ status: false, logged: false, message: `Email or password is invalid` })
+        if (!findUser) {
+            return response.status(200).json({
+                status: false,
+                logged: false,
+                message: `Email or password is invalid`
+            });
+        }
 
-        let data = {
+        const data = {
             id: findUser.id_user,
             name: findUser.name,
             email: findUser.email,
             role: findUser.role
-        }
+        };
 
-        /** define payload to generate token */
-        let payload = JSON.stringify(data)
+        const token = sign(data, SECRET || "joss", { expiresIn: "1d" });
 
-        /** generate token */
-        let token = sign(payload, SECRET || "joss")
-
-        return response
-            .status(200)
-            .json({ status: true, logged: true, data: data, message: `Login Success`, token })
+        return response.status(200).json({
+            status: true,
+            logged: true,
+            data,
+            message: `Login Success`,
+            token
+        });
     } catch (error) {
-        return response
-            .json({
-                status: false,
-                message: `There is an error. ${error}`
-            })
-            .status(400)
+        return response.status(400).json({
+            status: false,
+            message: `There is an error. ${error}`
+        });
     }
-}
+};
